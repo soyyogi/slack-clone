@@ -11,10 +11,10 @@ of **cloud firestore** from google.
 
 
 ## Use this application following these steps:
-1. create a clone in your machine.
-2. Change directory to local repo in your machine using '''cd slack-clone'''.
-3. Install dependencies using '''npm install''' command.
-4. To start development mode use '''npm start'''.
+1. Create a clone in your machine.
+2. Change directory to local repo in your machine using```cd slack-clone```.
+3. Install dependencies using```npm install``` command.
+4. To start development mode use```npm start```.
 
 
 ## Development Process
