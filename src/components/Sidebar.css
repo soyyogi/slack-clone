@@ -1,0 +1,44 @@
+.sidebar {
+    background-color: var(--chatroom-color);
+    color: white;
+    border-top: 1px solid #0f193f;
+    max-width: 260px;
+}
+
+.sidebar__header {
+    display: flex;
+    border-bottom: 1px solid #0f193f;
+    padding: 12px;    
+}
+
+.sidebar__info {
+    flex: 1;
+}
+
+.sidebar__info > h2 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.sidebar__info > h3 {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.sidebar__info > h3 > .MuiSvgIcon-root {
+    font-size: 14px;
+    margin-top: 1px;
+    margin-right: 2px;
+    color: green;
+}
+
+.sidebar__header > .MuiSvgIcon-root {
+    padding: 8px;
+    color: #0f193f;
+    font-size: 18px;
+    background-color: white;
+    border-radius: 999px;
+}
