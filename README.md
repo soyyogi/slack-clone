@@ -23,5 +23,9 @@ of **cloud firestore** from google.
 
 2. Chat room created as a separate component
    
-   - Header section of chat room
-   - Sidebar header section
+   1. Header section of chat room
+   2. Sidebar header section
+   3. Sidebar options component
+   4. Config cloud firestore
+   5. Set and render channels from db
+      Using *useState* and *useEffect* hooks to manage state and set channels
