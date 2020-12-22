@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import StarBorderOutlinedIcon from '@material-ui/icons/StarBorderOutlined';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import db from '../firebase';
+import Message from './Message';
 
 function Chat() {
 
@@ -45,7 +46,14 @@ function Chat() {
             </div>
 
             <div className="chat__messages">
-                {/* need to create message component */}
+                {roomMessages?.map(({ message, user, userimage, timestamp }) => (
+                    <Message
+                    message={message}
+                    user={user}
+                    userimage={userimage}
+                    timestamp={timestamp}
+                    />
+                ))}
             </div>
         </div>
     )
