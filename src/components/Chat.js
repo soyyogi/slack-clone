@@ -43,6 +43,10 @@ function Chat() {
                     </p>
                 </div>
             </div>
+
+            <div className="chat__messages">
+                {/* need to create message component */}
+            </div>
         </div>
     )
 }
