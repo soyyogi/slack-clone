@@ -10,6 +10,7 @@ function Chat() {
     const { roomId } = useParams();
 
     const [ roomDetails, setRoomDetails] = useState(null);
+    const [ roomMessages, setRoomMessages] = useState(null);
 
     //set room details whenever roomid changes
     useEffect(() => {
@@ -18,6 +19,13 @@ function Chat() {
                 setRoomDetails(snapshot.data())
             ))
         }
+        //fetch room messages collection from db
+        db.collection('rooms').doc(roomId)
+        .collection('messages')
+        .orderBy('timestamp', 'asc')
+        .onSnapshot(snapshot => (
+            setRoomMessages(snapshot.docs.map(doc => doc.data()))
+        ))
     }, [roomId])
 
     return (
