@@ -35,4 +35,4 @@ This is applications is created using **create-react-app** and database service 
    11. Implemented *React Context API* to add data layer to access user details and avoid prop drilling
    12. ChatInput component to send messages and implement database to render messages realtime
 
-3. Deployed prototype here [ASPro.Net](https://github.com/soyyogi/slack-clone)
+3. Deployed prototype here [ASPro.Net](https://slack-clone-436cc.web.app)
