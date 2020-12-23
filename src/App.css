@@ -1,3 +1,9 @@
 body {
     --chatroom-color: #0A112A;
+    overflow: hidden;
+}
+
+.app__body {
+    display: flex;
+    height: 100vh;
 }

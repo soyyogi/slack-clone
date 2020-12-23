@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import './Sidebar.css';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import CreateIcon from '@material-ui/icons/Create';
@@ -11,8 +11,29 @@ import PeopleAltIcon from '@material-ui/icons/PeopleAlt';
 import AppsIcon from '@material-ui/icons/Apps';
 import FileCopyIcon from '@material-ui/icons/FileCopy';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import AddIcon from '@material-ui/icons/Add';
+import db from '../firebase';
+import { useStateValue } from './StateProvider';
 
 function Sidebar() {
+
+    const [channels, setChannels] = useState([]);
+
+    const [{ user }] = useStateValue();
+
+    //set channels from db once the sidebar is rendered
+    useEffect(() => {
+        db.collection('rooms').onSnapshot(snapshot => (
+            setChannels(
+                snapshot.docs.map(doc => ({
+                    id: doc.id,
+                    name: doc.data().name
+                }))
+            )
+        ))
+    }, [])
+
     return (
         <div className="sidebar">
             <div className="sidebar__header">
@@ -20,7 +41,7 @@ function Sidebar() {
                     <h2>Assembler Pro</h2>
                     <h3>
                         <FiberManualRecordIcon />
-                        Yogesh Yadav
+                        {user?.displayName}
                     </h3>
                 </div>
                 <CreateIcon />
@@ -34,7 +55,14 @@ function Sidebar() {
             <SidebarOption Icon={FileCopyIcon} title="File browser"/>
             <SidebarOption Icon={ExpandLessIcon} title="Show less"/>
             <hr/>
-            
+            <SidebarOption Icon={ExpandMoreIcon} title="Channels"/>
+            <hr/>
+            <SidebarOption Icon={AddIcon} addChannelOption title="Add Channel" />
+
+            {/* render the collection of channels */}
+            {channels.map(channel => (
+                <SidebarOption title={channel.name} id={channel.id} />
+            ))}
         </div>
     )
 }
