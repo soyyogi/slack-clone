@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './App.css'
 import Header from './components/Header';
 import LandingPage from './components/LandingPage';
@@ -7,14 +7,16 @@ import Chat from './components/Chat';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
+
+  const [ user, setUser ] = useState(null);
+
   return (
     <div className="app">
       <Router>
-        <Switch>
-          <Route exact path="/">
-            <LandingPage />
-          </Route>
-          <Route path="/room">
+        {!user ? (
+          <LandingPage />
+        ) : (
+          <>
             <Header />
             <div className="app__body">
               <Sidebar />
@@ -27,9 +29,8 @@ function App() {
                 </Route>
               </Switch>
             </div>
-          </Route>
-        </Switch>
-        
+          </>  
+        )}
       </Router>
     </div>
   )
