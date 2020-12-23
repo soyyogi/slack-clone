@@ -31,3 +31,8 @@ This is applications is created using **create-react-app** and database service 
    7. Chat component created and chat screen header
    8. Fetching document data and messages collection from firestore using *useEffect and useState* hooks.
    9. Message component used to render messages collection on chat screen
+   10. Added firebase google authentication
+   11. Implemented *React Context API* to add data layer to access user details and avoid prop drilling
+   12. ChatInput component to send messages and implement database to render messages realtime
+
+3. Deployed prototype here [ASPro.Net](https://github.com/soyyogi/slack-clone)
